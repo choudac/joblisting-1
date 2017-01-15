@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
+before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
+    flash[:notice] = "早安！你好！"
     @jobs = Job.all
   end
 
